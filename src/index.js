@@ -28,6 +28,18 @@ for (let i = 0; i < data.length; i++) {
   cardImg.width = "256";
   cardImg.src = pokemon.sprites.other["official-artwork"].front_default;
   cardLi.append(cardImg);
-}
 
+  // Stat
+  const cardTextUl = document.createElement("ul");
+  cardTextUl.setAttribute("class", "card--text");
+
+  for (let j = 0; j < pokemon.stats.length; j++) {
+    const pokemonStats = pokemon.stats[j];
+    const cardTextLi = document.createElement("li");
+    cardTextUl.append(cardTextLi);
+    cardTextLi.innerHTML =
+      pokemonStats.stat.name + ": " + pokemonStats.base_stat;
+    cardListUl.append(cardTextUl);
+  }
+}
 console.log(data[0]);
